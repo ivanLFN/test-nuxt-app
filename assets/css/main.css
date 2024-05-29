@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.input-class::placeholder {
+  color: #2D31A6;
+  opacity: 0.2;
+}
+
+.form-input {
+  border-color: rgba(128, 152, 249, 0.5);
+  background: rgba(128, 152, 249, 0.1);
+  font-family: 'Inter', sans-serif;
+  width: 400;
+  font-size: 1.2rem;
+}
+
+.input-class {
+  border: none;
+  background: rgba(128, 152, 249, 0.03);
+}
+
+.input-class:focus,
+.input-class:hover {
+  outline: none;
+  border: none;
+}
+
+.form-input {
+  width: 453px;
+}
