@@ -3,12 +3,15 @@
     <img v-if="icon" :src="icon" alt="icon" class="mr-2" />
     <input
       :id="id"
-      :type="type"
+      :type="currentType"
       :value="modelValue"
       @input="$emit('update:modelValue', $event.target.value)"
       :placeholder="placeholder"
-      class="input-class"
+      class="input-class w-full"
     />
+    <a v-if="type === 'password'" @click.prevent="togglePasswordVisibility" href="#">
+      <img src="/images/eye-slash.png" alt="..." />
+    </a>
   </div>
 </template>
 
@@ -23,5 +26,15 @@ interface Props {
 }
 
 const props = defineProps<Props>()
+
+const currentType = ref(props.type || 'text')
+
+const togglePasswordVisibility = () => {
+  currentType.value = currentType.value === 'password' ? 'text' : 'password'
+}
+
+watch(() => props.type, (newType) => {
+  currentType.value = newType
+})
 
 </script>
