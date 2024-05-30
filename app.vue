@@ -1,5 +1,5 @@
 <template>
-  <div class="p-8">
+  <!-- <div class="p-8">
     <FormInput
       icon="images/envelope.png"
       v-model="formData.email"
@@ -7,18 +7,21 @@
       type="email"
       placeholder="Email"
     />
-  </div>
+  </div> -->
+  <NuxtLayout>
+    <NuxtPage />
+  </NuxtLayout>
 </template>
 
 <script setup lang="ts">
-import FormInput from '~/components/FormInput.vue'
+// import FormInput from '~/components/FormInput.vue'
 
-interface FormData {
-  email: string;
-}
+// interface FormData {
+//   email: string;
+// }
 
-const formData = ref<FormData>({
-  email: ''
-});
+// const formData = ref<FormData>({
+//   email: ''
+// });
 
 </script>

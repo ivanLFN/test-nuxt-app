@@ -29,3 +29,11 @@
 .form-input {
   width: 453px;
 }
+
+.auth-layout {
+  width: 1440px;
+  height: 90vh;
+  max-height: 1024px;
+  background-color: white;
+  border-radius: 40px;
+}
