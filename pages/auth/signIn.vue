@@ -14,7 +14,7 @@
           <form @submit.prevent="handleSubmit" class="row justify-center">
             <FormInput
               id="email"
-              type="email"
+              type="text"
               v-model="email"
               placeholder="Email"
               icon="/images/envelope.png"
@@ -27,7 +27,7 @@
               placeholder="Password"
               icon="/images/shield-slash.png"
             />
-            <button type="submit" class="classic-btn w-full mt-8">LOG IN</button>
+            <button :disabled="!isFormValid" type="submit" class="classic-btn w-full mt-8">LOG IN</button>
           </form>
         </div>
         <div class="text-center mt-6">
@@ -47,28 +47,38 @@
 
 <script setup lang="ts">
 import RightSection from '~/components/rightSection.vue'
-import { useSignInFormStore } from '~/stores/signInFormStore'
 import FormInput from '~/components/formInput.vue'
 
 definePageMeta({
   layout: 'auth'
 })
 
-const formStore = useSignInFormStore()
+const email = ref('')
+const password = ref('')
 
-const email = computed({
-  get: () => formStore.email,
-  set: (value: string) => formStore.setEmail(value)
-})
+const isFormValid = computed<boolean>(() => email.value.trim() !== '' && password.value.trim() !== '')
 
-const password = computed({
-  get: () => formStore.password,
-  set: (value: string) => formStore.setPassword(value)
-})
+const handleSubmit = async () => {
+  if (isFormValid.value) {
+    const formData = {
+      username: email.value,
+      password: password.value
+    }
 
-const handleSubmit = () => {
-  console.log('Email:', formStore.email)
-  console.log('Password:', formStore.password)
+    try {
+      const responseData = await $fetch('https://dummyjson.com/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      console.log(responseData)
+
+    } catch (error) {
+      console.error('Error during login:', error)
+    }
+  }
 }
 
 </script>

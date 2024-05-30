@@ -125,6 +125,11 @@
   background-color: #788ee9;
 }
 
+.classic-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .sub-text-blue {
   color: #8098F9;
   font-family: 'Montserrat' Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
