@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  
   devtools: { enabled: true },
   css: ['~/assets/css/main.css'],
   postcss: {
@@ -10,6 +9,7 @@ export default defineNuxtConfig({
     },
   },
   modules: ['@pinia/nuxt'],
+  pages: true,
   app: {
     head: {
       link: [
