@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-full picture-section items-center justify-center relative" @mousemove="handleMouseMove">
+  <div class="flex h-full items-center justify-center relative" @mousemove="handleMouseMove">
     <img class="bg-picture" src="/images/ellipse-picture.png" alt="..." />
     <img v-if="movingPictureURL" ref="movingPicture" class="absolute moving-picture" :src="movingPictureURL" alt="..." />
     <div class="absolute bottom-0 mb-16 mx-auto text-center">
