@@ -5,9 +5,9 @@
     </section>
     <section class="flex-1">
       <RightSection
-        movingPictureURL="/images/login-picture.png"
-        textInfo="Connect with any device."
-        textInfoSmall="Everything you need is an internet connection."
+        movingPictureURL="/images/otp-picture.png"
+        textInfo="It's just OTP verification"
+        textInfoSmall="You are one step away from recovering your password."
       />
     </section>
   </div>

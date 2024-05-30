@@ -5,14 +5,14 @@
     </section>
     <section class="flex-1">
       <RightSection
-        movingPictureURL="/images/login-picture.png"
-        textInfo="Connect with any device."
-        textInfoSmall="Everything you need is an internet connection."
+        movingPictureURL="/images/signUp-picture.png"
+        textInfo="Join us!"
+        textInfoSmall="Just go through the boring process of creating an account."
       />
     </section>
   </div>
 </template>
-
+  
 <script setup lang="ts">
 import RightSection from '~/components/rightSection.vue'
 
