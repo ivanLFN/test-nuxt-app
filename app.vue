@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-// import FormInput from '~/components/FormInput.vue'
+// import FormInput from '~/components/formInput.vue'
 
 // interface FormData {
 //   email: string;

@@ -36,4 +36,39 @@
   max-height: 1024px;
   background-color: white;
   border-radius: 40px;
+  overflow: hidden;
+}
+
+.picture-section {
+  background-color: #6172F3;
+}
+
+@media (max-width: 768px) {
+  .picture-section {
+    display: none;
+  }
+}
+
+.bg-picture {
+  width: auto;
+  max-height: 606px;
+}
+
+.moving-picture {
+  width: auto;
+  max-height: 369px;
+}
+
+.info {
+  color: white;
+  font-size: 20px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+.info-small {
+  font-size: 16px;
+  font-weight: 300;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
 }
