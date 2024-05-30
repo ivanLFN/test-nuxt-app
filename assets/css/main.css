@@ -11,13 +11,14 @@
   border-color: rgba(128, 152, 249, 0.5);
   background: rgba(128, 152, 249, 0.1);
   font-family: 'Inter', sans-serif;
-  width: 400;
   font-size: 1.2rem;
+  width: 453px;
+  height: 64px;
 }
 
 .input-class {
   border: none;
-  background: rgba(128, 152, 249, 0.03);
+  background: transparent;
 }
 
 .input-class:focus,
@@ -26,8 +27,10 @@
   border: none;
 }
 
-.form-input {
-  width: 453px;
+@media (max-width: 768px) {
+  .form-input {
+    width: 330px;
+  }
 }
 
 .auth-layout {
@@ -71,4 +74,59 @@
   font-weight: 300;
   font-family: 'Montserrat', sans-serif;
   color: white;
+}
+
+.form-header {
+  font-family: 'Montserrat' Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 700;
+  font-size: 45px;
+  color: #09090B;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .form-header {
+    font-size: 35px;
+  }
+}
+
+.form-class {
+  max-width: 477px;
+}
+
+.header-line {
+  width: 120px;
+  border-color: #bdbdbd;
+  height: 2px;
+}
+
+.sub-text {
+  color: #71717A;
+  font-family: 'Montserrat', sans-serif;
+}
+
+@media (max-width: 768px) {
+  .header-line {
+    width: 80px;
+  }
+}
+
+.classic-btn {
+  background-color: #8098F9;
+  height: 64px;
+  border-radius: 10px;
+  font-family: 'Inter', sans-serif;
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.classic-btn:hover {
+  background-color: #788ee9;
+}
+
+.sub-text-blue {
+  color: #8098F9;
+  font-family: 'Montserrat' Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: 800;
 }
