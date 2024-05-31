@@ -55,7 +55,7 @@
     </section>
     <section v-if="showConfirmModal" class="flex-1 flex justify-center items-center">
       <div class="form-class">
-        <ConfirmComponent class="flex items-center justify-center" @confirmed="confirmNavigation" @canceled="hideModal" />
+        <ConfirmComponent class="row items-center justify-center" @confirmed="confirmNavigation" @canceled="hideModal" />
       </div>
     </section>
     <section class="flex-1 picture-section">
@@ -73,6 +73,9 @@
 import RightSection from '~/components/rightSection.vue'
 import ConfirmComponent from '~/components/ConfirmComponent.vue'
 import { useRouter } from 'vue-router'
+import { useSignUpFormStore } from '~/stores/SignUpStore'
+
+const signUpFormStore = useSignUpFormStore()
 
 definePageMeta({
   layout: 'auth'
@@ -81,9 +84,21 @@ definePageMeta({
 const router = useRouter()
 const showConfirmModal = ref(false)
 
-const username = ref('')
-const email = ref('')
-const password = ref('')
+const username = computed({
+  get: () => signUpFormStore.signUpForm.username,
+  set: (value) => signUpFormStore.signUpForm.username = value
+})
+
+const email = computed({
+  get: () => signUpFormStore.signUpForm.email,
+  set: (value) => signUpFormStore.signUpForm.email = value
+})
+
+const password = computed({
+  get: () => signUpFormStore.signUpForm.password,
+  set: (value) => signUpFormStore.signUpForm.password = value
+})
+
 const confirmPassword = ref('')
 const isTermsAccepted = ref(false)
 
@@ -126,25 +141,8 @@ const confirmNavigation = () => {
 
 const handleSubmit = async () => {
   if (isFormValid.value) {
-    const formData = {
-      username: username.value,
-      email: email.value,
-      password: password.value
-    }
-
-    try {
-      const responseData = await $fetch('https://dummyjson.com/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-      console.log(responseData)
-
-    } catch (error) {
-      console.error('Error during login:', error)
-    }
+    signUpFormStore.setSignUpFormData(username.value, email.value, password.value)
+    router.push('/auth/enterOTP')
   }
 }
 
