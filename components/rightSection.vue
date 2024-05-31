@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-full items-center justify-center relative" @mousemove="handleMouseMove">
+  <div class="flex h-full items-center justify-center relative" @mousemove="handleMouseMove" @mouseleave="resetPosition">
     <img class="bg-picture" src="/images/ellipse-picture.png" alt="..." />
     <img v-if="movingPictureURL" ref="movingPicture" class="absolute moving-picture" :src="movingPictureURL" alt="..." />
     <div class="absolute bottom-0 mb-16 mx-auto text-center">
@@ -27,6 +27,12 @@ const handleMouseMove = (event: MouseEvent) => {
   const newY = offsetY * maxOffset - maxOffset / 2
 
   movingPicture.value.style.transform = `translate(${newX}px, ${newY}px)`
+}
+
+const resetPosition = () => {
+  if (movingPicture.value) {
+    movingPicture.value.style.transform = 'translate(0, 0)'
+  }
 }
 
 interface Props {

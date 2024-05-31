@@ -28,10 +28,10 @@
               icon="/images/shield-slash.png"
             />
             <button :disabled="!isFormValid" type="submit" class="classic-btn w-full mt-8">LOG IN</button>
+            <div class="text-center mt-6">
+              <p class="sub-text">Don’t have account? <NuxtLink to="/auth/signUp" class="sub-text-blue">Create an account</NuxtLink></p>
+            </div>
           </form>
-        </div>
-        <div class="text-center mt-6">
-          <p class="sub-text">Don’t have account? <NuxtLink to="/auth/signUp" class="sub-text-blue">Create an account</NuxtLink></p>
         </div>
       </div>
     </section>  
@@ -46,6 +46,7 @@
 </template>
 
 <script setup lang="ts">
+import { ref, computed } from 'vue'
 import RightSection from '~/components/rightSection.vue'
 import FormInput from '~/components/formInput.vue'
 
@@ -56,7 +57,7 @@ definePageMeta({
 const email = ref('')
 const password = ref('')
 
-const isFormValid = computed<boolean>(() => email.value.trim() !== '' && password.value.trim() !== '')
+const isFormValid = computed(() => email.value.trim() !== '' && password.value.trim() !== '')
 
 const handleSubmit = async () => {
   if (isFormValid.value) {
